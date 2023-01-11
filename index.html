@@ -6,12 +6,12 @@
     <meta name = "viewport" content="width=device-width, initial-scale = 1.0">
     <link rel="stylesheet" href="style.css">
 
-		<title style="font-family: Arial">  Messin w/ internet </title>
+		<title style="font-family: Arial">  Individual Project </title>
 
   </head>
   <div class = "grid">
     <div class = "header">
-      Header
+      Individual Project
       <br>
 
 
@@ -19,15 +19,41 @@
     </div>
     <div class = "title">
       <div class = "titletext">
-        Accordians (click below to open them)
+        Accordians (click below to open them) 
       </div>
     </div>
     
     <div class = "sidebar">
-      Sidebar
+      AWS Lambda <br/>
+      will open response in new window
       <br>
-      <a href="https://lpbmwp250e.execute-api.ap-southeast-2.amazonaws.com/default/myHello">get a hello from Lambda</a>
+<!--      <div class = nameblock>
+        <label for="personName" class = "personNamelabel">please put in a name to pass to AWS Lambda:</label>
+        <input type="personName" name="personName" placeholder="Enter a name" class = "username">
+      </div>
+      <br>
+      <a href="https://lpbmwp250e.execute-api.ap-southeast-2.amazonaws.com/default/myHello?personName="+="$personName">get a hello from Lambda</a>
+      <br>
 
+            <form action="https://lpbmwp250e.execute-api.ap-southeast-2.amazonaws.com/default/myHello?personName="+= userName method="get">
+        <input type="text" name="userName" class = "userName">
+        <input class = lambdaButton type="submit" value=" Lambda ">
+      </form>
+
+
+      <form action="https://lpbmwp250e.execute-api.ap-southeast-2.amazonaws.com/default/myHello?personName="+= personName method="get">
+        <input type="text" name="personName" class = "personName">
+        <input class = lambdaButton type="submit" value=" Lambda ">
+      </form>
+-->
+      
+      <form action="" onsubmit="myFunction()">
+
+        Enter name: <input type="text" name="fname" id="mydata">
+  
+        <input type="submit" value="Submit">
+  
+      </form>
 
 
     </div>
@@ -90,10 +116,7 @@
 
 
 
-  <!--      this loads the ionicons file  for use (not used at mo. ) -->
-<!--  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>  -->
-
+ 
   <!--      this loads the javascript file -->
   <script type="text/javascript" src="script.js"></script>
 

@@ -25,7 +25,7 @@
     display: grid;
   /*  grid-template-columns: 1fr 1fr 1fr ; */
     grid-template-columns: 1fr 300px 300px 300px 1fr;
-    grid-template-rows: 100px 100px 1fr 1fr 1fr;
+    grid-template-rows: 120px 100px 1fr 1fr 1fr;
     grid-template-areas: 
     ". header header header ."
     ". sidebar title title ."
@@ -53,7 +53,7 @@
   text-align: center;
 }
 .sidebar{
-  background-color: palegreen;
+  background-color: lightskyblue;
   grid-area: sidebar;
   text-align: center;
 }
@@ -87,7 +87,7 @@
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
-  background-color: mediumvioletred;
+  background-color: slateblue;
   color: black;
 }
 

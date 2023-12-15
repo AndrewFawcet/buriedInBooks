@@ -110,7 +110,12 @@
   font: bold 32px arial, sans-serif;
 }
 .storytext{
-  font: 16px arial, sans-serif;	
+  font: 16px arial, sans-serif;
+  margin: 0; /* Resetting margin */
+  padding: 0; /* Resetting padding */
+  line-height: 1.1; /* Set line height for better readability */
+}	
+	
 }
 .footer{
   background-color: plum;

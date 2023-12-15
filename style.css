@@ -114,6 +114,7 @@
   margin: 0; /* Resetting margin */
   padding: 0; /* Resetting padding */
   line-height: 1.1; /* Set line height for better readability */
+ background-color: lightgrey;
 }	
 	
 }

@@ -58,7 +58,7 @@
   text-align: center;
 }
 .content{
-  background-color: grey;
+  background-color: lightgrey;
   grid-area: content;
 
   align-items: center;
@@ -80,7 +80,7 @@
   padding: 0;
 }
 .accordian_text{
-  padding: 0px 30px;
+  padding: 0px;
   height: 100%;
   align-items: centre;
 }
@@ -113,7 +113,6 @@
   font: 16px arial, sans-serif;
   margin: 0; /* Resetting margin */
   padding: 0; /* Resetting padding */
-  line-height: 1.1; /* Set line height for better readability */
  background-color: lightgrey;
 }	
 	

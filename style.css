@@ -109,6 +109,9 @@
 .burntext, .turntext, .churntext{
   font: bold 32px arial, sans-serif;
 }
+.storytext{
+  font: 16px arial, sans-serif;	
+}
 .footer{
   background-color: plum;
   grid-area: footer;

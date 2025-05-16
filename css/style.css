@@ -36,36 +36,44 @@ body {
   background-color: #666;
 }
 
+/* mobile (outside desktop) */
 .grid {
   display: grid;
-  grid-template-columns: 200px 200px 200px ;
-  grid-template-rows: 100px 100px 1fr 1fr 1fr;
-  grid-template-areas: 
-  " header header header "
-  " title title title "
-  " sidebar sidebar sidebar "  
-  " content content content "
-  " content content content "
-  " footer footer footer ";
-
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "title"
+    "sidebar"
+    "content"
+    "footer";
 }
 
 /* media query for how it should like on media (desktop)  */
-@media screen and (min-width: 700px){
+@media screen and (min-width: 700px) {
   .grid {
     display: grid;
-  /*  grid-template-columns: 1fr 1fr 1fr ; */
-    grid-template-columns: 1fr 300px 300px 300px 1fr;
-    grid-template-rows: 120px 100px 1fr 1fr 1fr;
+    grid-template-columns: 1fr 0.382fr 0.618fr 1fr; /* golden ratio columns */
+    grid-template-rows: auto auto 1fr auto;
     grid-template-areas: 
-    ". header header header ."
-    ". title title title ."
-    ". content content content ."  
-    ". content content content ."
-    ". content content content ."
-    ". footer footer footer .";
+      ". header header ."
+      ". title title ."
+      ". sidebar content ."
+      ". footer footer .";
+    height: 100vh;
+  }
+}
 
-  } 
+.sidebar {
+  grid-area: sidebar;
+  background-color: rgba(135, 206, 250, 0.7); /* lightskyblue with transparency */
+  padding: 1rem;
+  border-right: 2px solid slategray;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: start;
+  gap: 1rem;
 }
 
 .title{
@@ -88,12 +96,20 @@ body {
   grid-area: sidebar;
   text-align: center;
 }
-.content{
+/*.content{
   background-color: lightgrey;
   grid-area: content;
 
   align-items: center;
+} */
+
+.content {
+  grid-area: content;
+  background-color: rgba(245, 245, 245, 0.85);
+  padding: 1rem;
+  overflow-y: auto;
 }
+
  /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
   border-radius: 5px;

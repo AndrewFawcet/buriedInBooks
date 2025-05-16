@@ -1,8 +1,13 @@
-*{
+/*{
   margin: 10px;
   padding: 8px;
-/*  font: 1.5em/1.2 Arial, Helvetica, sans-serif; */
+  font: 1.5em/1.2 Arial, Helvetica, sans-serif; 
   font: bold 16px arial, sans-serif;
+} */
+
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -91,11 +96,7 @@ body {
   border-radius: 5px;
   text-align: center;
 }
-.sidebar{
-  background-color: lightskyblue;
-  grid-area: sidebar;
-  text-align: center;
-}
+
 /*.content{
   background-color: lightgrey;
   grid-area: content;
@@ -120,16 +121,17 @@ body {
   text-align: left;
   height: 40px;
   display: inline-flex;
-  align-items: centre;
+  align-items: center;
   border: none;
   outline: none;
   transition: 0.4s;
   padding: 0;
 }
-.accordian_text{
+
+.accordion_text{
   padding: 0px;
   height: 100%;
-  align-items: centre;
+  align-items: center;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */

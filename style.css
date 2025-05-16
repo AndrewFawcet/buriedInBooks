@@ -5,6 +5,25 @@
   font: bold 16px arial, sans-serif;
 }
 
+// body {
+//   background-image: url('ocean.jpg');
+//   background-repeat: no-repeat;
+//   background-size: 200% 200%; /* Zoom in to make it pan within image bounds */
+//   background-position: center center;
+//   overflow: hidden; /* Optional: remove scrollbars */
+//   margin: 0;
+// }
+
+body {
+  background-image: url('ocean.jpg');
+  background-repeat: no-repeat;
+  background-size: 150% 150%;
+  background-position: center center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 200px 200px 200px ;

@@ -1,9 +1,9 @@
-/*{
+* {
   margin: 10px;
   padding: 8px;
-  font: 1.5em/1.2 Arial, Helvetica, sans-serif; 
+/*  font: 1.5em/1.2 Arial, Helvetica, sans-serif; */
   font: bold 16px arial, sans-serif;
-} */
+} 
 
 
 * {
@@ -43,6 +43,8 @@ body {
 
 /* mobile (outside desktop) */
 .grid {
+  font: bold 16px arial, sans-serif;
+
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr auto;
@@ -61,10 +63,10 @@ body {
     grid-template-columns: 1fr 0.382fr 0.618fr 1fr; /* golden ratio columns */
     grid-template-rows: auto auto 1fr auto;
     grid-template-areas: 
-      ". header header ."
-      ". title title ."
+      ". header . ."
+      ". title . ."
       ". sidebar content ."
-      ". footer footer .";
+      ". footer . .";
     height: 100vh;
   }
 }
@@ -79,6 +81,7 @@ body {
   align-items: stretch;
   justify-content: start;
   gap: 1rem;
+  text-align: center;
 }
 
 .title{

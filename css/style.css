@@ -1,0 +1,331 @@
+*{
+  margin: 10px;
+  padding: 8px;
+/*  font: 1.5em/1.2 Arial, Helvetica, sans-serif; */
+  font: bold 16px arial, sans-serif;
+}
+
+body {
+  background-image: url('ocean.jpg');
+  background-repeat: no-repeat;
+  background-size: 150% 150%;
+  background-position: center center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+}
+
+.center-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.nav-button {
+  background-color: #444;
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #666;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 200px 200px 200px ;
+  grid-template-rows: 100px 100px 1fr 1fr 1fr;
+  grid-template-areas: 
+  " header header header "
+  " title title title "
+  " sidebar sidebar sidebar "  
+  " content content content "
+  " content content content "
+  " footer footer footer ";
+
+}
+
+/* media query for how it should like on media (desktop)  */
+@media screen and (min-width: 700px){
+  .grid {
+    display: grid;
+  /*  grid-template-columns: 1fr 1fr 1fr ; */
+    grid-template-columns: 1fr 300px 300px 300px 1fr;
+    grid-template-rows: 120px 100px 1fr 1fr 1fr;
+    grid-template-areas: 
+    ". header header header ."
+    ". title title title ."
+    ". content content content ."  
+    ". content content content ."
+    ". content content content ."
+    ". footer footer footer .";
+
+  } 
+}
+
+.title{
+  background-color: grey;
+  grid-area: title;
+}
+
+.header{
+  grid-area: header;
+  background-color: plum;
+  text-align: center;
+}
+.titletext{
+  background-color: plum;
+  border-radius: 5px;
+  text-align: center;
+}
+.sidebar{
+  background-color: lightskyblue;
+  grid-area: sidebar;
+  text-align: center;
+}
+.content{
+  background-color: lightgrey;
+  grid-area: content;
+
+  align-items: center;
+}
+ /* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  border-radius: 5px;
+  background-color: lightskyblue;
+  color: black;
+  cursor: pointer;
+  width: 96%;
+  text-align: left;
+  height: 40px;
+  display: inline-flex;
+  align-items: centre;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  padding: 0;
+}
+.accordian_text{
+  padding: 0px;
+  height: 100%;
+  align-items: centre;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: slateblue;
+  color: black;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  /*  display: none; */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+} 
+
+
+.venuspic {
+  display: flex;
+  width :96%;
+  animation: spin infinite 20s linear;
+}
+.burntext, .turntext, .churntext{
+  font: bold 32px arial, sans-serif;
+}
+.storytext{
+  font: 16px arial, sans-serif;
+  margin: 0; /* Resetting margin */
+  padding: 0; /* Resetting padding */
+padding-bottom: 5px;	
+ background-color: lightgrey;
+}
+
+.story-embed {
+  width: 100%;
+  height: 700px; /* or however tall you want it to be */
+  border: none;
+  background-color: lightgrey; /* match your storytext bg */
+}
+
+
+.footer{
+  background-color: plum;
+  grid-area: footer;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.accordion:after {
+  color: black;
+/*  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  content: '\02620';
+  
+  font-size: 25px;
+  float: right;
+  margin-left: 5px;
+  height: 100%;
+  align-items: centre;
+}
+  
+.active:after {
+  color: black;
+/*  content: "\2796"; */
+  content: "\1F480";
+  align-items: centre;
+  font-size: 20px;
+  height: 100%;
+}
+
+
+/* some turning diamonds to look at */
+.palestTulip {fill:#F2AABD;}
+.paleTulip {fill:#F27990;}
+.tulip {fill:#CC2954;}
+.darkTulip {fill:#A51138;}
+.darkestTulip {fill:#7C0826;}
+.mouse {fill:#E5E4E3;}
+
+.turn-01, .turn-02, .turn-03, .turn-04, .turn-05, .turn-06{
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: 50% 50%;
+}
+
+.turn-01 { animation-name: turnOne;}
+.turn-02 { animation-name: turnTwo;}
+.turn-03 { animation-name: turnThree;}
+.turn-04 { animation-name: turnFour;}
+.turn-05 { animation-name: turnFive;}
+
+@keyframes turnOne {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(180deg);}
+}
+@keyframes turnTwo {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+@keyframes turnThree {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(540deg);}
+}
+@keyframes turnFour{
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(720deg);}
+}
+@keyframes turnFive {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(900deg);}
+}
+
+
+.ball {
+	width: 10px;
+	height: 10px;
+	margin: 10px auto;
+	border-radius: 50px;
+}
+
+.ball:nth-child(1) {
+  background-color: hotpink;
+	animation: right 1s infinite ease-in-out;
+}
+
+.ball:nth-child(2) {
+  background-color: blueviolet;
+	animation: left 1.1s infinite ease-in-out;
+}
+
+.ball:nth-child(3) {
+  background-color: hotpink;
+	animation: right 1.05s infinite ease-in-out;
+}
+
+.ball:nth-child(4) {
+  background-color: blueviolet;
+  animation: left 1.15s infinite ease-in-out;
+}
+
+.ball:nth-child(5) {
+  background-color: hotpink;
+	animation: right 1.1s infinite ease-in-out;
+}
+
+.ball:nth-child(6) {
+  background-color: blueviolet;
+	animation: left 1.05s infinite ease-in-out;
+}
+
+.ball:nth-child(7) {
+  background-color: hotpink;
+	animation: right 1s infinite ease-in-out;
+}
+.ball:nth-child(8) {
+  background-color: blueviolet;
+	animation: right .95s infinite ease-in-out;
+}
+
+.ball:nth-child(9) {
+  background-color: hotpink;
+	animation: left .9s infinite ease-in-out;
+}
+
+.ball:nth-child(10) {
+  background-color: blueviolet;
+	animation: right .85s infinite ease-in-out;
+}
+
+.ball:nth-child(11) {
+  background-color: hotpink;
+	animation: left .8s infinite ease-in-out;
+}
+
+
+@keyframes right {
+	0% {
+		transform: translate(-150px);
+	}
+	50% {
+		transform: translate(150px);
+	}
+	100% {
+		transform: translate(-150px);
+	}
+}
+
+@keyframes left {
+	0% {
+		transform: translate(150px);
+	}
+	50% {
+		transform: translate(-150px);
+	}
+	100% {
+		transform: translate(150px);
+	}
+}

@@ -1,15 +1,12 @@
+/* global settings */
 * {
   margin: 10px;
   padding: 8px;
 /*  font: 1.5em/1.2 Arial, Helvetica, sans-serif; */
   font: bold 16px arial, sans-serif;
-} 
-
-
-* {
   box-sizing: border-box;
 }
-
+/* body background styling */
 body {
   background-image: url('../images/ocean.jpg');
   background-repeat: no-repeat;
@@ -20,6 +17,88 @@ body {
   padding: 0;
 }
 
+/*grid layout mobile */
+.grid {
+  font: bold 16px arial, sans-serif;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "title"
+    "sidebar"
+    "content"
+    "footer";
+}
+
+/* grid layout desktop */
+@media screen and (min-width: 700px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 0.382fr 0.618fr 1fr; /* golden ratio columns */
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: 
+      ". header . ."
+      ". title . ."
+      ". sidebar content ."
+      ". footer . .";
+    height: 100vh;
+  }
+}
+
+/* grid area elements */
+.header {
+  grid-area: header;
+  background-color: plum;
+  text-align: center;
+}
+
+.title {
+  grid-area: title;
+  background-color: grey;
+}
+
+.titletext {
+  background-color: plum;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: rgba(135, 206, 250, 0.7); /* light blue with transparency */
+  padding: 1rem;
+  border-right: 2px solid slategray;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: start;
+  gap: 1rem;
+  text-align: center;
+}
+
+.content {
+  grid-area: content;
+  background-color: rgba(245, 245, 245, 0.85);
+  padding: 1rem;
+  overflow-y: auto;
+}
+/*.content{
+  background-color: lightgrey;
+  grid-area: content;
+
+  align-items: center;
+} */
+
+.footer {
+  background-color: plum;
+  grid-area: footer;
+  text-align: center;
+}
+
+
+/* buttons and navigations */
 .center-buttons {
   display: flex;
   justify-content: center;
@@ -41,80 +120,7 @@ body {
   background-color: #666;
 }
 
-/* mobile (outside desktop) */
-.grid {
-  font: bold 16px arial, sans-serif;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto 1fr auto;
-  grid-template-areas:
-    "header"
-    "title"
-    "sidebar"
-    "content"
-    "footer";
-}
-
-/* media query for how it should like on media (desktop)  */
-@media screen and (min-width: 700px) {
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 0.382fr 0.618fr 1fr; /* golden ratio columns */
-    grid-template-rows: auto auto 1fr auto;
-    grid-template-areas: 
-      ". header . ."
-      ". title . ."
-      ". sidebar content ."
-      ". footer . .";
-    height: 100vh;
-  }
-}
-
-.sidebar {
-  grid-area: sidebar;
-  background-color: rgba(135, 206, 250, 0.7); /* lightskyblue with transparency */
-  padding: 1rem;
-  border-right: 2px solid slategray;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: start;
-  gap: 1rem;
-  text-align: center;
-}
-
-.title{
-  background-color: grey;
-  grid-area: title;
-}
-
-.header{
-  grid-area: header;
-  background-color: plum;
-  text-align: center;
-}
-.titletext{
-  background-color: plum;
-  border-radius: 5px;
-  text-align: center;
-}
-
-/*.content{
-  background-color: lightgrey;
-  grid-area: content;
-
-  align-items: center;
-} */
-
-.content {
-  grid-area: content;
-  background-color: rgba(245, 245, 245, 0.85);
-  padding: 1rem;
-  overflow-y: auto;
-}
-
- /* Style the buttons that are used to open and close the accordion panel */
+ /* accordion panels */
 .accordion {
   border-radius: 5px;
   background-color: lightskyblue;
@@ -143,6 +149,27 @@ body {
   color: black;
 }
 
+.accordion:after {
+  color: black;
+/*  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  content: '\02620';
+  
+  font-size: 25px;
+  float: right;
+  margin-left: 5px;
+  height: 100%;
+  align-items: centre;
+}
+
+.active:after {
+  color: black;
+/*  content: "\2796"; */
+  content: "\1F480";
+  align-items: centre;
+  font-size: 20px;
+  height: 100%;
+}
+
 /* Style the accordion panel. Note: hidden by default */
 .panel {
   padding: 0 18px;
@@ -150,17 +177,9 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-} 
-
-
-.venuspic {
-  display: flex;
-  width :96%;
-  animation: spin infinite 20s linear;
 }
-.burntext, .turntext, .churntext{
-  font: bold 32px arial, sans-serif;
-}
+
+/* themed headings */
 .storytext{
   font: 16px arial, sans-serif;
   margin: 0; /* Resetting margin */
@@ -176,11 +195,15 @@ padding-bottom: 5px;
   background-color: lightgrey; /* match your storytext bg */
 }
 
+/* custom content */
+.venuspic {
+  display: flex;
+  width :96%;
+  animation: spin infinite 20s linear;
+}
 
-.footer{
-  background-color: plum;
-  grid-area: footer;
-  text-align: center;
+.burntext, .turntext, .churntext{
+  font: bold 32px arial, sans-serif;
 }
 
 
@@ -199,28 +222,6 @@ padding-bottom: 5px;
 		transform: rotate(360deg);
 	}
 }
-
-.accordion:after {
-  color: black;
-/*  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  content: '\02620';
-  
-  font-size: 25px;
-  float: right;
-  margin-left: 5px;
-  height: 100%;
-  align-items: centre;
-}
-  
-.active:after {
-  color: black;
-/*  content: "\2796"; */
-  content: "\1F480";
-  align-items: centre;
-  font-size: 20px;
-  height: 100%;
-}
-
 
 /* some turning diamonds to look at */
 .palestTulip {fill:#F2AABD;}

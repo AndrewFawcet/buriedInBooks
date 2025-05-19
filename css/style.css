@@ -1,9 +1,7 @@
 /* global settings */
 * {
-  
-/*  font: 1.5em/1.2 Arial, Helvetica, sans-serif; */
+  /* font: 1.5em/1.2 Arial, Helvetica, sans-serif; */
   font: bold 16px arial, sans-serif;
-/*  box-sizing: border-box; */
 }
 
 /* body background styling */
@@ -20,7 +18,6 @@ body {
 /*grid layout mobile */
 .grid {
   font: bold 16px arial, sans-serif;
-
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr auto;
@@ -36,7 +33,7 @@ body {
 @media screen and (min-width: 700px) {
   .grid {
     display: grid;
-    grid-template-columns: 0.2fr 0.4fr 1.2fr 0.2fr; /* golden ratio columns */
+    grid-template-columns: 0.2fr 0.4fr 1.2fr 0.2fr;
     grid-template-rows: auto auto 1fr auto ;
     grid-template-areas: 
       ". header . ."
@@ -122,9 +119,9 @@ body {
   background-color: #666;
 }
 
- /* accordion panels */
+/* accordion panels */
 .accordion {
-  display: flex; /* not inline-flex */
+  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
@@ -138,13 +135,7 @@ body {
   outline: none;
   transition: 0.4s;
 }
-/*
-.accordion_text{
-  padding: 0px;
-  height: 100%;
-  align-items: center;
-}
-*/
+
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .accordion:hover {
   background-color: slateblue;
@@ -156,29 +147,16 @@ body {
   color: white;
 }
 
-/*
-.accordion:after {
-  color: black;
 /*  content: '\02795'; /* Unicode character for "plus" sign (+) */
-/*  content: '\02620';
-  
-  font-size: 25px;
-  float: right;
-  margin-left: 5px;
-  height: 100%;
-  align-items: centre;
-}
-*/
-
 .accordion:after {
   content: '\02620';
   font-size: 20px;
   margin-left: auto;
 }
 
+/*  content: "\2796"; */
 .active:after {
   color: black;
-/*  content: "\2796"; */
   content: "\1F480";
   align-items: centre;
   font-size: 20px;
@@ -188,7 +166,6 @@ body {
 /* Style the accordion panel. Note: hidden by default */
 .panel {
   padding: 0 18px;
-  /*  display: none; */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
@@ -205,14 +182,13 @@ body {
 
 .story-embed {
   width: 100%;
-  height: 700px; /* or however tall you want it to be */
+  height: 700px; /* story height */
   border: none;
   background-color: lightgrey; /* match your storytext bg */
 }
 
 /* custom content */
 .venuspic {
-  /*display: flex; */
   display: block;
   margin: 0 auto;
   width :50%;

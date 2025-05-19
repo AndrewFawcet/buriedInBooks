@@ -4,8 +4,9 @@
   padding: 8px;
 /*  font: 1.5em/1.2 Arial, Helvetica, sans-serif; */
   font: bold 16px arial, sans-serif;
-  box-sizing: border-box;
+/*  box-sizing: border-box; */
 }
+
 /* body background styling */
 body {
   background-image: url('../images/ocean.jpg');
@@ -36,14 +37,14 @@ body {
 @media screen and (min-width: 700px) {
   .grid {
     display: grid;
-    grid-template-columns: 1fr 0.382fr 0.618fr 1fr; /* golden ratio columns */
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 0.2fr 0.4fr 0.6fr  0.6fr 0.2fr; /* golden ratio columns */
+    grid-template-rows: auto auto 1fr 1fr auto;
     grid-template-areas: 
-      ". header . ."
-      ". title . ."
-      ". sidebar content ."
-      ". footer . .";
-    height: 100vh;
+      ". header . . ."
+      ". title . . ."
+      ". sidebar content content ."
+      ". footer . . .";
+    /*height: 100vh; */
   }
 }
 

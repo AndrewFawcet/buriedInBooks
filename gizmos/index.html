@@ -11,21 +11,21 @@
     <div class="grid">
       <div class="header">Gizmos</div>
 
+      <div class="sidebar">
+        <button class="accordion" data-target="panel1">Venus will forever...</button>
+        <button class="accordion" data-target="panel2">For diamonds will ever...</button>
+        <button class="accordion" data-target="panel3">Fevered brow doth press and ...</button>
+      </div>
+
       <div class="content">
-        <button class="accordion">
-          <span class="accordian_text">Venus will forever...</span>
-        </button>
-        <div class="panel">
+        <div id="panel1" class="panel">
           <p class="burntext">burn</p>
           <a href="https://en.wikipedia.org/wiki/Venus">
             <img class="venuspic" src="../images/venus.png" alt="venus" />
           </a>
         </div>
 
-        <button class="accordion">
-          <span class="accordian_text">For diamonds will ever...</span>
-        </button>
-        <div class="panel">
+        <div id="panel2" class="panel">
           <p class="turntext">turn</p>
           <svg viewBox="0 0 800 300">
             <polygon
@@ -51,10 +51,7 @@
           </svg>
         </div>
 
-        <button class="accordion">
-          <span class="accordian_text">Fevered brow doth press and ...</span>
-        </button>
-        <div class="panel">
+        <div id="panel3" class="panel">
           <p class="churntext">churn</p>
           <div class="container">
             <div class="ball"></div>

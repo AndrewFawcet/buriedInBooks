@@ -1,17 +1,22 @@
-var acc = document.getElementsByClassName("accordion");
-var i;
+document.querySelectorAll('.accordion').forEach(button => {
+  button.addEventListener('click', () => {
+    const targetId = button.getAttribute('data-target');
+    const panel = document.getElementById(targetId);
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function () {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
+    // Toggle active class on button
+    button.classList.toggle('active');
+
+    // Toggle panel open/closed state
+    const isActive = panel.classList.toggle('active');
+    if (isActive) {
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      panel.style.opacity = '1';
     } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.style.maxHeight = null;
+      panel.style.opacity = '0';
     }
   });
-}
+});
 
 (function () {
   let x = Math.random() * 100;

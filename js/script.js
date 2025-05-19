@@ -2,18 +2,24 @@ document.querySelectorAll('.accordion').forEach(button => {
   button.addEventListener('click', () => {
     const targetId = button.getAttribute('data-target');
     const panel = document.getElementById(targetId);
+    const isActive = panel.classList.contains('active');
 
-    // Toggle active class on button
-    button.classList.toggle('active');
+   // Close all panels and deactivate all buttons
+    document.querySelectorAll('.accordion').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    document.querySelectorAll('.panel').forEach(p => {
+      p.classList.remove('active');
+      p.style.maxHeight = null;
+      p.style.opacity = '0';
+    });
 
-    // Toggle panel open/closed state
-    const isActive = panel.classList.toggle('active');
-    if (isActive) {
+    // If the clicked panel was not active, activate it
+    if (!isActive) {
+      panel.classList.add('active');
       panel.style.maxHeight = panel.scrollHeight + 'px';
       panel.style.opacity = '1';
-    } else {
-      panel.style.maxHeight = null;
-      panel.style.opacity = '0';
+      button.classList.add('active');
     }
   });
 });

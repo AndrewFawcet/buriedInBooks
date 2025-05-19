@@ -40,7 +40,7 @@ body {
     grid-template-rows: auto auto 1fr auto ;
     grid-template-areas: 
       ". header . ."
-      ". title . ."
+      ". title content ."
       ". sidebar content ."
       ". footer . .";
     height: 100vh;
@@ -50,34 +50,34 @@ body {
 
 /* grid area elements */
 .header {
-  margin: 10px;
-  padding: 8px;
+  padding: 1rem;
   grid-area: header;
   background-color: plum;
   text-align: center;
 }
 
+.title,
+.sidebar,
+.content {
+  margin: 0;
+  padding: 1rem;
+}
+
 .title {
-  margin: 10px;
-  padding: 8px;
   grid-area: title;
   background-color: grey;
 }
 
 .titletext {
-  margin: 10px;
-  padding: 8px;
+  padding: 0.5rem;
   background-color: plum;
-  border-radius: 5px;
+  border-radius: 5px; 
   text-align: center;
 }
 
 .sidebar {
-  margin: 10px;
-  padding: 8px;
   grid-area: sidebar;
   background-color: rgba(135, 206, 250, 0.7); /* light blue with transparency */
-  padding: 1rem;
   border-right: 2px solid slategray;
   display: flex;
   flex-direction: column;
@@ -88,23 +88,12 @@ body {
 }
 
 .content {
-  margin: 10px;
-  padding: 8px;
   grid-area: content;
-  background-color: rgba(245, 245, 245, 0.85);
-  padding: 1rem;
   overflow-y: auto;
 }
-/*.content{
-  background-color: lightgrey;
-  grid-area: content;
-
-  align-items: center;
-} */
 
 .footer {
-  margin: 10px;
-  padding: 8px;
+  padding: 1rem;
   background-color: plum;
   grid-area: footer;
   text-align: center;
@@ -135,43 +124,56 @@ body {
 
  /* accordion panels */
 .accordion {
+  display: flex; /* not inline-flex */
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 40px;
+  width: 96%;
   border-radius: 5px;
   background-color: lightskyblue;
   color: black;
   cursor: pointer;
-  width: 96%;
-  text-align: left;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
   border: none;
   outline: none;
   transition: 0.4s;
-  padding: 0;
 }
-
+/*
 .accordion_text{
   padding: 0px;
   height: 100%;
   align-items: center;
 }
-
+*/
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .accordion:hover {
+.accordion:hover {
   background-color: slateblue;
   color: black;
 }
 
+.active{
+  /*background-color: slateblue;*/
+  color: white;
+}
+
+/*
 .accordion:after {
   color: black;
 /*  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  content: '\02620';
+/*  content: '\02620';
   
   font-size: 25px;
   float: right;
   margin-left: 5px;
   height: 100%;
   align-items: centre;
+}
+*/
+
+.accordion:after {
+  content: '\02620';
+  font-size: 20px;
+  margin-left: auto;
 }
 
 .active:after {
@@ -210,8 +212,10 @@ body {
 
 /* custom content */
 .venuspic {
-  display: flex;
-  width :96%;
+  /*display: flex; */
+  display: block;
+  margin: 0 auto;
+  width :50%;
   animation: spin infinite 20s linear;
 }
 

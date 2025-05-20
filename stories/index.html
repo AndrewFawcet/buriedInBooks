@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
     <title>Stories</title>
+    <style>
+      /* Modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      .modal button {
+        margin: 10px;
+        padding: 8px 16px;
+      }
+    </style>
   </head>
 
   <body class="stories-page">
@@ -12,28 +40,25 @@
       <div class="header">Stories</div>
 
       <div class="title">
-        <div class="titletext">Choose a story to unfold</div>
+        <div class="titletext">Choose a story category</div>
       </div>
 
       <div class="sidebar">
-        <button class="accordion" data-target="story1">Urban Fairy Tale</button>
-        <button class="accordion" data-target="story2">Space Cat</button>
+        <button
+          class="accordion"
+          onclick="window.location.href='general/index.html'"
+        >
+          General Stories
+        </button>
+        <button class="accordion" onclick="openModal()">Adult Horror</button>
       </div>
 
       <div class="content">
-        <div id="story1" class="panel">
-          <object
-            type="text/html"
-            data="stepsisters.html"
-            class="story-embed"
-          ></object>
-        </div>
-        <div id="story2" class="panel">
-          <object
-            type="text/html"
-            data="space cat.html"
-            class="story-embed"
-          ></object>
+        <div
+          class="panel"
+          style="opacity: 0.4; text-align: center; padding: 2rem"
+        >
+          Please choose a story category from the left.
         </div>
       </div>
 
@@ -42,6 +67,45 @@
       </div>
     </div>
 
-    <script src="../js/script.js"></script>
+    <!-- Adult Content Warning Modal -->
+    <div id="warningModal" class="modal">
+      <div class="modal-content">
+        <p>
+          <strong>Warning:</strong> This section contains adult horror content
+          which may be disturbing to some readers. Are you sure you want to
+          continue?
+        </p>
+        <button onclick="proceedToHorror()">Yes, I Understand</button>
+        <button onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+
+    <script>
+      function openModal() {
+        document.getElementById("warningModal").style.display = "block";
+
+        // Push a new state into history
+        history.pushState({ modalOpen: true }, "modal", "#modal");
+      }
+
+      function closeModal() {
+        document.getElementById("warningModal").style.display = "none";
+
+        // If the modal was opened by pushState, go back
+        if (history.state && history.state.modalOpen) {
+          history.back(); // Remove the fake modal state
+        }
+      }
+
+      function proceedToHorror() {
+        window.location.href = "horror/index.html";
+      }
+
+      // Handle browser back/forward
+      window.addEventListener("popstate", function (event) {
+        // Close modal if user goes back and it's still open
+        document.getElementById("warningModal").style.display = "none";
+      });
+    </script>
   </body>
 </html>

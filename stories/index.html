@@ -81,30 +81,41 @@
     </div>
 
     <script>
-      function openModal() {
-        document.getElementById("warningModal").style.display = "block";
+      const modal = document.getElementById("warningModal");
 
-        // Push a new state into history
-        history.pushState({ modalOpen: true }, "modal", "#modal");
+      function openModal() {
+        modal.style.display = "block";
+        location.hash = "modal"; // Set a hash to track modal state
       }
 
       function closeModal() {
-        document.getElementById("warningModal").style.display = "none";
+        modal.style.display = "none";
 
-        // If the modal was opened by pushState, go back
-        if (history.state && history.state.modalOpen) {
-          history.back(); // Remove the fake modal state
+        if (location.hash === "#modal") {
+          history.back(); // Go back one step to remove the hash
         }
       }
 
       function proceedToHorror() {
+        // Optional: Clear hash before redirect
+        location.hash = "";
         window.location.href = "horror/index.html";
       }
 
-      // Handle browser back/forward
-      window.addEventListener("popstate", function (event) {
-        // Close modal if user goes back and it's still open
-        document.getElementById("warningModal").style.display = "none";
+      // When the user uses back/forward navigation
+      window.addEventListener("hashchange", () => {
+        if (location.hash !== "#modal") {
+          modal.style.display = "none";
+        }
+      });
+
+      // On page load, ensure modal is hidden unless explicitly opened
+      window.addEventListener("load", () => {
+        if (location.hash === "#modal") {
+          modal.style.display = "block";
+        } else {
+          modal.style.display = "none";
+        }
       });
     </script>
   </body>

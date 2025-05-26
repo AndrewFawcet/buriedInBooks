@@ -1,7 +1,5 @@
-/* global settings */
-* {
-  /* font: 1.5em/1.2 Arial, Helvetica, sans-serif; */
-  font: bold 16px arial, sans-serif;
+html, body {
+  height: 100%;
 }
 
 /* body background styling */
@@ -17,7 +15,8 @@ body {
 
 /*grid layout mobile */
 .grid {
-  font: bold 16px arial, sans-serif;
+/*  font: bold 16px arial, sans-serif;  */
+  font: bold arial, sans-serif;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr auto;
@@ -27,26 +26,29 @@ body {
     "sidebar"
     "content"
     "footer";
+    
 }
 
 /* grid layout desktop */
 @media screen and (min-width: 700px) {
   .grid {
     display: grid;
-    grid-template-columns: 0.2fr 0.4fr 1.2fr 0.2fr;
+    grid-template-columns: 0.2fr 0.4fr 1.2fr 0.1fr 0.1fr;
     grid-template-rows: auto auto 1fr auto ;
     grid-template-areas: 
-      ". header . ."
-      ". title content ."
-      ". sidebar content ."
-      ". footer . .";
+      ". header . . ."
+      ". title content . ."
+      ". sidebar content storyControls ."
+      ". footer . . .";
     height: 100vh;
     gap: 1rem;
+    min-height: 100vh;
   }
 }
 
 /* grid area elements */
 .header {
+  font: bold 16px arial, sans-serif;
   padding: 1rem;
   grid-area: header;
   background-color: plum;
@@ -61,6 +63,7 @@ body {
 }
 
 .title {
+  font: bold 16px arial, sans-serif;
   grid-area: title;
   background-color: grey;
 }
@@ -73,6 +76,7 @@ body {
 }
 
 .sidebar {
+  font: bold 16px arial, sans-serif;
   grid-area: sidebar;
   background-color: rgba(135, 206, 250, 0.7); /* light blue with transparency */
   border-right: 2px solid slategray;
@@ -89,7 +93,35 @@ body {
   overflow-y: auto;
 }
 
+.storyControls {
+  grid-area: storyControls;
+  display: none; /* Hidden until a drawer is opened */
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 1rem;
+}
+
+.storyControls button {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  background-color: slateblue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.storyControls button:hover {
+  background-color: darkslateblue;
+}
+
 .footer {
+  font: bold 16px arial, sans-serif;
   padding: 1rem;
   background-color: plum;
   grid-area: footer;
@@ -121,6 +153,7 @@ body {
 
 /* accordion panels */
 .accordion {
+  font: bold 16px arial, sans-serif;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -172,8 +205,10 @@ body {
 }
 
 /* themed headings */
-.storytext{
-  font: 16px arial, sans-serif;
+.storytext {
+  /*  font: 16px arial, sans-serif; */
+  font-family: arial, sans-serif;
+  font-weight: normal;
   margin: 0; /* Resetting margin */
   padding: 0; /* Resetting padding */
   padding-bottom: 5px;	
@@ -182,7 +217,8 @@ body {
 
 .story-embed {
   width: 100%;
-  height: 700px; /* story height */
+  height: 70vh; /* story height */
+  max-height: 100%;
   border: none;
   background-color: lightgrey; /* match your storytext bg */
 }

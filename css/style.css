@@ -55,6 +55,12 @@ body {
   text-align: center;
 }
 
+.signature {
+  text-align: right;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
 .title,
 .sidebar,
 .content {
